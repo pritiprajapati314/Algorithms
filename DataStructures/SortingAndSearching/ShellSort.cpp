@@ -23,9 +23,15 @@ shellSort(int arr[], int size){
 }
 
 int main(){
-    int arr[] = {3, 4, 1, 8, 9, 7, 6, 5, 10, 2};
-    shellSort(arr, sizeof(arr)/sizeof(arr[0]));
+    int arr[] = {3, 46, 1, 8, 97, 7, 6, 5, 104, 2, 100};
+    cout<<"unsorted array :"<<endl;
     for(int i = 0 ; i<sizeof(arr)/sizeof(arr[0]); i++){
-        cout<<arr[i]<<endl;
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    shellSort(arr, sizeof(arr)/sizeof(arr[0]));
+    cout<<"sorted array by shell sort operation : "<<endl;
+    for(int i = 0 ; i<sizeof(arr)/sizeof(arr[0]); i++){
+        cout<<arr[i]<<" ";
     }
 }
