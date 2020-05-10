@@ -2,19 +2,19 @@
 using namespace std;
 
 
-void mergeSort(int*, int, int, int);
-void merge(int arr[], int ll, int ul)
+void merge(int*, int, int, int);
+void mergeSort(int arr[], int ll, int ul)
 {
     int mid = (ll+ul)/2;
-    if(ll<ul)
+    if(ll < ul)
     {
-        merge(arr, ll, mid);
-        merge(arr,mid+1,ul);
-        mergeSort(arr, ll, ul, mid);
+        mergeSort(arr, ll, mid);
+        mergeSort(arr,mid+1,ul);
+        merge(arr, ll, ul, mid);
     }
 }
 
-void mergeSort(int arr[], int ll, int ul, int mid)
+void merge(int arr[], int ll, int ul, int mid)
 {
     int brr[ul-ll], i =ll, j = mid+1,k=0;
     while( i<= mid && j<= ul) 
@@ -111,7 +111,7 @@ int main(){
 int main(){
     int arr[] = {1, 7, 5, 3, 9, 0, 2, 6, 4, 8};
 
-    merge(arr, 0, 9);
+    mergeSort(arr, 0, 9);
 
     for(int i = 0; i<=9; i++)
     {

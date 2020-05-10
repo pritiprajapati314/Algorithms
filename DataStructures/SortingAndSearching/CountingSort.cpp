@@ -2,8 +2,26 @@
 #include<vector>
 using namespace std;
 
+
+/*void countingSort(int arr[], int length){
+    int size = std::max_length(arr, arr+length);
+    cout<< size;
+}
+
+
+int main(){
+    int arr[] = {2, 1, 1, 0, 2, 5, 4, 0, 2, 8, 7, 7, 9, 2, 0, 1, 9};
+    int length = sizeof(arr)/sizeof(arr[0]);
+
+    countingSort(arr, length);
+
+    return 0;
+}*/
+
+
+// Priti
+
 void max_min(int arr[], int* max, int* min, int length){
- 
 for(int i = 0; i<length; i++){
 if(arr[i] > *max)
     *max = arr[i];
@@ -71,3 +89,5 @@ int main(){
         cout<<crr[i]<<" ";
     }
 }
+
+
