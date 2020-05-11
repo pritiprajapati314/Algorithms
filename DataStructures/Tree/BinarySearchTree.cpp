@@ -204,10 +204,6 @@ void deleteNode(Node* currentNode){
     cout<<"task completed"<<endl;
 }
 
-void deleteNode(Node* head, int n){
-    
-    Node current_node = 
-}
 
 
 
