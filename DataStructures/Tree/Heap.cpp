@@ -67,6 +67,70 @@ void insert(vector<int> &heap, int data){
     return;
 }
 
+int find(vector<int> &heap, int value, int parent){
+
+    int leftChild = parent*2+1;
+    int rightChild = parent*2+2;
+
+    if(heap[parent] == value){
+        return parent;
+    }
+    else if(heap[parent] > value){
+        if(heap[leftChild] >= value){
+            parent = find(heap, value, leftChild);
+        }
+        else{
+            parent = find(heap,value,rightChild);
+        }
+    }
+}
+
+void updating(vector<int> &heap, int original, int updated){
+    
+    int index = find(heap, original, 0);
+    int parent = (index-1)/2;
+    int leftChild = index*2+1;
+    int rightChild = index*2+2;
+    if(heap[index] != original){
+        cout<<"The value "<<original<<" doesnot exist"<<endl;
+        return;
+    }
+    else if(updated > heap[parent] && parent >= 0){
+        heap[index] = updated;
+        while(parent >= 0){
+        if(heap[parent] < heap[index]){
+            swap(heap,parent,index);
+            index = parent;
+            parent = (parent-1)/2;
+        }else{
+            break;
+        }
+    }
+    }
+    else if((updated < heap[leftChild] || updated < heap[rightChild]) && heap[leftChild] < heap.size()){
+        heap[index] = updated;
+        while(leftChild < heap.size()){
+            int newParent = max(heap, leftChild, rightChild);
+                if(heap[newParent] > heap[parent]){
+                swap(heap, newParent, parent);
+                parent = newParent;
+                leftChild = parent*2+1;
+                rightChild = parent*2+2;
+                }
+                else{
+                    break;
+                }
+        
+        }
+    }
+    else{
+        heap[index] = updated;
+        return;
+    }
+}
+
+
+
 void testCase(){
 
     vector<int> heap;
@@ -79,6 +143,9 @@ void testCase(){
     deleteHeap(heap,0);
     printHeap(heap);
     insert(heap,5);
+    insert(heap,12);
+    updating(heap,4,14);
+    updating(heap,12,6);
     printHeap(heap);
     return;
 }
