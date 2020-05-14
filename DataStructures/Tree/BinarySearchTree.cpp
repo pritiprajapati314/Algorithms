@@ -210,10 +210,10 @@ void testBinarySearchTree(){
     // check insert function
     cout<< "checking insert function ...... " <<endl;
 
-    deleteNode(five,8);
     inorderTraversal(five);
     cout<<endl;
     insert(five, NULL, 15);
+    deleteNode(five,8);
     inorderTraversal(five);
     cout<<endl<< endl;
 
