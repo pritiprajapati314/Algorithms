@@ -22,4 +22,5 @@ int main()
     
     int result = BinarySearch(arr, 0, 9, 6);
     cout<<result;
+    return 0;
 }
