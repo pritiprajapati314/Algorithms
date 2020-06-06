@@ -24,13 +24,15 @@ void swap(vector<int> &heap, int newParent, int parent){
 
 void deleteHeap(vector<int>& heap, int index){
     heap[index] = heap[heap.size()-1];
+
     heap.pop_back();
     int parent = index;
     int leftChild = index*2+1;
-    int rightChild = index*2+1;
+    int rightChild = index*2+2;
 
     while(leftChild < heap.size()){
         int newParent = max(heap, leftChild, rightChild);
+
         if(heap[newParent] > heap[parent]){
         swap(heap, newParent, parent);
         parent = newParent;
@@ -55,14 +57,11 @@ void insert(vector<int> &heap, int data){
     heap.push_back(data);
     int child = heap.size()-1;
     int parent = (child-1)/2;
-    while(parent >= 0){
-        if(heap[parent] < heap[child]){
+    while(heap[parent] < heap[child]){
+
             swap(heap,parent,child);
             child = parent;
-            parent = (parent-1)/2;
-        }else{
-            break;
-        }
+            parent = (child-1)/2;
     }
     return;
 }
@@ -109,13 +108,13 @@ void updating(vector<int> &heap, int original, int updated){
     }
     else if((updated < heap[leftChild] || updated < heap[rightChild]) && heap[leftChild] < heap.size()){
         heap[index] = updated;
+        
         while(leftChild < heap.size()){
             int newParent = max(heap, leftChild, rightChild);
-                if(heap[newParent] > heap[parent]){
-                swap(heap, newParent, parent);
-                parent = newParent;
-                leftChild = parent*2+1;
-                rightChild = parent*2+2;
+                if(heap[newParent] > heap[index]){
+                    swap(heap, newParent, index);
+                    leftChild = newParent*2+1;
+                    rightChild = newParent*2+2;
                 }
                 else{
                     break;
@@ -129,6 +128,18 @@ void updating(vector<int> &heap, int original, int updated){
     }
 }
 
+void heapSort(vector<int> heap){
+
+    int size = heap.size();
+
+    //we are going to delete the root again and again;
+
+    while(size > 0){
+        cout<<heap[0]<<" ";
+        deleteHeap(heap,0);
+        size--; 
+    }
+}
 
 
 void testCase(){
@@ -143,10 +154,12 @@ void testCase(){
     deleteHeap(heap,0);
     printHeap(heap);
     insert(heap,5);
-    insert(heap,12);
+    insert(heap,11);
     updating(heap,4,14);
-    updating(heap,12,6);
+    updating(heap,11,0);
+    deleteHeap(heap,0);
     printHeap(heap);
+    heapSort(heap);
     return;
 }
 

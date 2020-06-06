@@ -191,20 +191,7 @@ void deleteNode(Node* currentNode, int data){
 
 //function for testing binary search tree functions
 void testBinarySearchTree(){
-    Node* five = new Node(5);
-    Node* three = new Node(3);
-    Node* one = new Node(1);
-    Node* four = new Node(4);
-    Node* two = new Node(2);
-    Node* seven = new Node(7);
-    Node* nine = new Node(9);
-    Node* eight = new Node(8);
-
-    five->setBothChild(three, seven);
-    three->setBothChild(one, four);
-    one->setOnlyRightChild(two);
-    seven->setOnlyRightChild(nine);
-    nine->setOnlyLeftChild(eight);
+s
 
 
     // check insert function
