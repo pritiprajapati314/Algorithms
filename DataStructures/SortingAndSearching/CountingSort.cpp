@@ -53,17 +53,13 @@ int main(){
     int length = sizeof(arr)/sizeof(arr[0]);
     
     ///algorithm 1
-
     for(int i = 0; i<= max; i++){
            for(int j = 0; j<brr[i]; j++){
                cout<<i<<" ";
            }
-    }
+    }cout<<endl;
 
-    cout<<endl;
-
-    ///address updation
-
+    ///address updation: number of degits repeating itself
     int sum = 0;
     for(int i = 0; i<= max; i++){
                sum += brr[i];
@@ -73,8 +69,6 @@ int main(){
 
 
     //counting sort algorithm
-
-
     int crr[length];
     for(int i = length-1; i>-1; i--)
     {
