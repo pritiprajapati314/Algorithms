@@ -23,7 +23,6 @@ void bellmanFord(vector<vector<int>> weight, vector<int> &distance, int source){
                 if(weight[j][k] != 0){
                     distance[k] = minimum(distance[k], distance[j] + weight[j][k]);
                 }
-
             }
         }
     }
@@ -41,21 +40,9 @@ void testCaseBellmanFord(){
         {0, -4, 0, 0, 0, -1, 0, 0},
         {0, 0, 0, 0, 0, 0, 1, 0} 
         };
-
-    vector< vector<int> > adjList{
-        {1},
-        {5},
-        {1, 3},
-        {4},
-        {5},
-        {1},
-        {1, 5},
-        {6}
-    };
-
     vector<int> distance(weight.size(), 999);
 
-    bellmanFord(weight, distance, 0);
+    bellmanFord(weight, distance, 0); //valid only for the single source
 
     for(int i = 0; i<distance.size(); i++){
         cout<<distance[i]<<" ";
