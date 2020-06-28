@@ -21,12 +21,23 @@ class node{
 };
 
 void insert(node *currentNode, int data){
+
+    node* head = currentNode;
     node* temp = currentNode;
-    while(currentNode->next != NULL){
+    do{
+        
+        if(currentNode->next == NULL){
+            break;
+        }
+        else{
         currentNode = currentNode->next;
         temp = currentNode;
-    }
-    temp->next = new node(data, temp);
+        }
+
+    }while(currentNode->next != head);
+
+    currentNode->next = new node(data, temp);
+    currentNode->next->next = head;
 }
 
 void update(node *currentNode,int index, int data){
@@ -73,11 +84,11 @@ void printDLL(node* head){
 
     node *currentNode = head;
     int index = 0;
-    while(currentNode->next != NULL){
+    do{
         currentNode = currentNode->next;  
         cout<<index<<" "<<currentNode->previous->data<<" "<<currentNode->data<<" "<<currentNode->next->data<<endl;  
         index++;
-    }
+    }while(currentNode->next != head);
 }
 
 void testCaseDLL(){

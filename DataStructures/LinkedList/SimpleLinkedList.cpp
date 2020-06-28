@@ -1,4 +1,3 @@
-
 #include <iostream> 
 
 using namespace std;
@@ -20,28 +19,24 @@ class node{
 
 void insert(node *currentNode, int data){
 
-    node* temp = currentNode;
     while(currentNode->next != NULL){
         currentNode = currentNode->next;
-        temp = currentNode;
     }
-    temp->next = new node(data);
+    currentNode->next = new node(data);
     
 }
 
 void update(node *currentNode, int index, int data){
     int currentIndex = 0; 
-    node* temp = currentNode;
 
     while(currentNode->next != NULL){
         if(currentIndex == index){
-            node* kemp = currentNode->next;
-            temp->next = new node(data);
-            temp->next->next = kemp;
+            node* temp = currentNode->next;
+            currentNode->next = new node(data);
+            currentNode->next->next = temp;
             return;
         }else{
             currentNode = currentNode->next;
-            temp = currentNode;
             currentIndex++;
         }
     }
@@ -51,7 +46,6 @@ void update(node *currentNode, int index, int data){
 
 void remove(node *currentNode, int index){
     int currentIndex = 0;
-    node* temp = currentNode;
 
     while(currentNode->next != NULL){
         if(currentIndex == index){
@@ -59,15 +53,12 @@ void remove(node *currentNode, int index){
             return;
         }else{
             currentNode = currentNode->next;
-            temp = currentNode; 
             currentIndex++;
         }
     }
 }
-void printSLL(node* head){
-
-    node *currentNode = head;
-
+void printSLL(node* currentNode){
+    
     while(currentNode->next != NULL){
         currentNode = currentNode->next;  
         cout<<currentNode->data<<" ";  
