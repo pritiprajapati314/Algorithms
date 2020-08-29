@@ -10,7 +10,6 @@ int max(int a, int b){
 }
 
 void degreeSort(vector< vector<int> > &adjList,vector<int> &inDegree, vector<int> &freeEnd){
-
     for(int i = 0; i<inDegree.size(); i++){
         for(int j = 0; j<adjList[i].size(); j++){
             inDegree[adjList[i][j]] += 1;
@@ -25,7 +24,6 @@ void degreeSort(vector< vector<int> > &adjList,vector<int> &inDegree, vector<int
 }
 
 void topologicalOrder(vector< vector<int> > &adjList, vector<int> inDegree, vector<int> &topOrder, vector<int> freeEnd, vector<int> &longestPathList ){
-
     queue<int> que;
     int count = 0;
     for(int j = 0; j<freeEnd.size(); j++){
@@ -52,7 +50,6 @@ void topologicalOrder(vector< vector<int> > &adjList, vector<int> inDegree, vect
 }
 
 void testTopologicalOrder(){
-
     vector< vector<int> > adjList{
         {2,3,4},
         {2,7},

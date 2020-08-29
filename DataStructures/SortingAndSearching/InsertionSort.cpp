@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void InsertionSort(int arr[], int len){
+void insertionSort(int arr[], int len){
     for(int i = 0; i<len; i++){
         int temp = arr[i];
         int j = i-1;
@@ -16,7 +16,7 @@ void InsertionSort(int arr[], int len){
 
 int main(){
     int arr[] = {4, 7, 2, 1, 8, 5, 9, 3, 0, 6};
-    InsertionSort(arr, 10);
+    insertionSort(arr, 10);
     for(int i = 0; i<10; i++){
         cout<<arr[i]<<endl;
     }

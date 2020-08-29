@@ -17,38 +17,31 @@ void mergeSort(int arr[], int ll, int ul)
 void merge(int arr[], int ll, int ul, int mid)
 {
     int brr[ul-ll], i =ll, j = mid+1,k=0;
-    while( i<= mid && j<= ul) 
-    {
-        if(arr[i]<= arr[j])
-        {
+    while( i<= mid && j<= ul){
+        if(arr[i]<= arr[j]){
             brr[k] = arr[i];
             i++;
         }
-        else
-        {
+        else{
             brr[k] = arr[j];
             j++;
         }
         k++;
     }  
-    if(i>mid)
-    {
-        while(j<=ul)
-        {
+
+    if(i>mid){
+        while(j<=ul){
             brr[k] = arr[j];
             k++; j++;
         }
     } 
-    else
-    {
-        while(i<=mid)
-        {
+    else{
+        while(i<=mid){
             brr[k] = arr[i];
             k++; i++;
         }
     }
-    for(int f= ll,g = 0; f<=ul; f++,g++)
-    {
+    for(int f= ll,g = 0; f<=ul; f++,g++){
         arr[f] = brr[g];
     }
 }

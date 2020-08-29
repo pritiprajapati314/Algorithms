@@ -54,7 +54,7 @@ void quicksort(int arr[],int ll, int ul)
 
 int partition(int arr[], int ll, int ul)
 {
-    int privot = arr[ll];
+    int privot = arr[ll];  
     int start = ll;
     int end = ul;
     while(start<end){
