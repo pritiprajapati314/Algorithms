@@ -4,7 +4,7 @@
 #include <typeinfo>
 
 using namespace std;
-stack <string> storded;
+stack <char> storded;
 
 string infixToPostfix(string infix){
 
@@ -12,19 +12,17 @@ string infixToPostfix(string infix){
     string s = "";
     for(int i = 0; i<infix.size(); i++){
         if(infix[i] == '+' || infix[i] == '-' || infix[i] == '/' || infix[i] == '*'){
-            s = infix[i];
-            storded.push(s);
+            storded.push(infix[i]);
         }
         else if(infix[i] == ')'){
             while(!storded.empty()){
                 result += storded.top(); storded.pop();
             }
-            //storded.push(result);
         }
         else if(infix[i] != '('){
             result += infix[i];
         }
-        if(i+1 += infix.size()){
+        if(i+1 == infix.size()){
             while(!storded.empty()){
                 result += storded.top(); storded.pop();
             }
@@ -35,7 +33,7 @@ string infixToPostfix(string infix){
 
 
 int main(){
-    string infix = "k+m*(l-n)*r+o";
+    string infix = "k+m*(l-n)/r+o";
     string postfix = infixToPostfix(infix);  
     cout<<postfix;
 }
